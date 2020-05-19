@@ -31,7 +31,7 @@ public class OkCoinV3StreamingMarketDataServiceTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
-        okCoinStreamingService = new OkCoinV3StreamingService("wss://real.okcoin.com:10442/ws/v3");
+        okCoinStreamingService = new OkCoinV3StreamingService("wss://real.okcoin.com:8443/ws/v3");
         marketDataService = new OkCoinV3StreamingMarketDataService(okCoinStreamingService);
     }
 
