@@ -44,7 +44,7 @@ public class OkCoinV3StreamingMarketDataService implements StreamingMarketDataSe
                 .map(s -> {
                     OkCoinOrderbook okCoinOrderbook;
                     JsonNode data = s.get("data").get(0);
-                    if (!orderBooks.containsKey(key)) {
+                    if (s.get("action").asText().equals("partial")) {
                         OkCoinDepth okCoinDepth = mapper.treeToValue(data, OkCoinDepth.class);
                         okCoinOrderbook = new OkCoinOrderbook(okCoinDepth);
                         orderBooks.put(key, okCoinOrderbook);
